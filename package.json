@@ -1,0 +1,17 @@
+{
+  "name": "vision-mcp",
+  "version": "0.85.1",
+  "description": "MCP for computer vision",
+  "type": "module",
+  "main": "src/vision-mcp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Chambers",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.1",
+    "ollama": "^0.5.15",
+    "zod": "^3.24.3"
+  }
+}
