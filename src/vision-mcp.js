@@ -64,15 +64,6 @@ server.tool(
             .describe("A list of image file paths to analyze"),
     },
     async ({ mediaPaths }) => {
-        // Add debug log for incoming request
-        fs.appendFileSync(
-            "debug.txt",
-            `\n${new Date().toISOString()} - Received request with mediaPaths: ${JSON.stringify(
-                mediaPaths
-            )}\n`,
-            "utf8"
-        );
-
         const results = [];
 
         const ollama = new Ollama({ host: host });
