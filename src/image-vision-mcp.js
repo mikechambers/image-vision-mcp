@@ -17,27 +17,24 @@ const { values } = parseArgs({
             type: "string",
             short: "h",
         },
-        help: {
-            type: "boolean",
-        },
+        model: {
+            type: "string",
+            short: "m",
+        }
     },
 });
 
-// Now extract the host value with a default
-const host = values.host || "http://127.0.0.1:11434"; // Default value if not provided
 
-if (values.help) {
-    console.log("Usage: node index.js --permitted <dir1> <dir2> ...");
-    process.exit(0);
-}
+const host = values.host || "http://127.0.0.1:11434"; // Default value if not provided
+const model = values.model || "llava:34b"; 
 
 // Get permitted directories
 const permittedDirectories = values.permitted || [];
 
 // Create an MCP server
 const server = new McpServer({
-    name: "VisionMCP",
-    version: "1.0.0",
+    name: "Image Vision MCP",
+    version: "0.85.1",
 });
 
 server.resource(
@@ -72,11 +69,11 @@ server.tool(
                 checkPath(filePath);
 
                 const res = await ollama.chat({
-                    model: "llava:34b",
+                    model: model,
                     messages: [
                         {
                             role: "user",
-                            content: "Describe this image",
+                            content: "Analyze this Photoshop layer for design work. Describe:\n1. The specific content or elements visible (objects, shapes, text, graphics)\n2. Whether this appears to be a full image or an isolated element\n3. Colors and predominant tones if any\n4. Visual style or artistic appearance\n5. Resolution/quality assessment\n6. Any transparency or special effects visible\n7. Potential purpose or usage in a composition\n8. Suggestions for layer naming based on content\n\nFocus on details relevant for a graphic designer working with layer composition, color theory, and visual hierarchy.",
                             images: [filePath],
                         },
                     ],
