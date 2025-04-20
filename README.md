@@ -63,6 +63,12 @@ You can run in development mode using the [MCP inspector](https://github.com/mod
 npx @modelcontextprotocol/inspector node src/image-vision-mcp.js --permitted /Users/FOO/Desktop/mcp/
 ```
 
+## Questions, Feature Requests, Feedback
+
+If you have any questions, feature requests, need help, or just want to chat, join the [discord](https://discord.gg/fgxw9t37D7).
+
+You can also log bugs and feature requests on the [issues page](https://github.com/mikechambers/image-vision-mcp/issues).
+
 ## License
 
 Project released under a [MIT License](LICENSE.md).
